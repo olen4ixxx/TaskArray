@@ -18,8 +18,8 @@ public class MaxElementArrayServiceTest {
 
     @Test(timeOut = 1000)
     public void maxElementTest() throws CustomArrayException {
-        int[] array = new int[1000000];
-        int expected = 999999;
+        int[] array = new int[10000];
+        int expected = 9999;
         for (int i = 0; i < array.length; i++) {
             array[i] = i;
         }

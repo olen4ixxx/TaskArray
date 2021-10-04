@@ -6,8 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public interface ArrayService {
-    Logger logger = LogManager.getLogger();
     int result(CustomArray customArray) throws CustomArrayException;
-//    int[] resultArray(int[] array);
-//    double resultDouble(int[] array);
+//    int[] resultArray(int[] array.txt);
+//    double resultDouble(int[] array.txt);
 }

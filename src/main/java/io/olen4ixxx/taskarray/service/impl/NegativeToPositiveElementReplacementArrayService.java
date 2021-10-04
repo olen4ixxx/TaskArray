@@ -1,10 +1,10 @@
-package io.olen4ixxx.taskarray.service;
+package io.olen4ixxx.taskarray.service.impl;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 
 public class NegativeToPositiveElementReplacementArrayService {
-    public void negativeToPositiveElementReplacement(CustomArray customArray) throws CustomArrayException {
+    public CustomArray negativeToPositiveElementReplacement(CustomArray customArray) throws CustomArrayException {
         if (customArray == null) {
             throw new CustomArrayException("Array is null");
         }
@@ -14,6 +14,7 @@ public class NegativeToPositiveElementReplacementArrayService {
                 array[i] = -array[i];
             }
         }
+        return new CustomArray(array);
     }
 
 }

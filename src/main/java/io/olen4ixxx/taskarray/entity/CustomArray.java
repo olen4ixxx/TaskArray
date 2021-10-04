@@ -9,7 +9,7 @@ public class CustomArray {
 
     public CustomArray(int... array) throws CustomArrayException {
         if (array.length < 1) {
-            throw new CustomArrayException("Illegal array length");
+            throw new CustomArrayException("Illegal array.txt length");
         }
 
         this.array = array;
@@ -45,7 +45,7 @@ public class CustomArray {
     public String toString() {
         return Arrays.toString(array);
 //        StringBuilder sb = new StringBuilder();
-//        for (int a:array) {
+//        for (int a:array.txt) {
 //            sb.append(a).append(" ");
 //        }
 //        return sb.toString();

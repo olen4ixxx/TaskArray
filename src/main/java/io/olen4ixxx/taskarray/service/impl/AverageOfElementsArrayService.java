@@ -1,9 +1,7 @@
-package io.olen4ixxx.taskarray.service;
+package io.olen4ixxx.taskarray.service.impl;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
-import io.olen4ixxx.taskarray.service.impl.SumOfElementsArrayService;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
