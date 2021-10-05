@@ -16,12 +16,22 @@ import java.util.List;
 public class ArrayFileReader {
     static Logger logger = LogManager.getLogger();
 
-    public List<String> readArray() throws URISyntaxException, IOException {
+    public List<String> readArray() throws ClassCastException {
         URL res = ArrayFileReader.class.getClassLoader().getResource("array.txt");
-        File file = Paths.get(res.toURI()).toFile();
+        File file = null;
+        try {
+            file = Paths.get(res.toURI()).toFile();
+        } catch (URISyntaxException e) {
+            throw new ClassCastException("Wrong file path");
+        }
         String aPath = file.getPath();
         Path path = Paths.get(aPath);
-        List<String> linesFromFile = Files.readAllLines(path);
+        List<String> linesFromFile = null;
+        try {
+            linesFromFile = Files.readAllLines(path);
+        } catch (IOException e) {
+            throw new ClassCastException("Check the file");
+        }
         return linesFromFile;
     }
 }
