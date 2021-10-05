@@ -2,8 +2,12 @@ package io.olen4ixxx.taskarray.service.implsort;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.service.ArraySortService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BubbleArraySortService implements ArraySortService {
+    static Logger logger = LogManager.getLogger();
+
     public CustomArray resultArray(CustomArray customArray) {
         int[] array = customArray.getArray();
         boolean needIteration = true;

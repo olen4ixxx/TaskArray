@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class MaxElementArrayService implements ArrayService {
     static Logger logger = LogManager.getLogger();
+
     @Override
     public int result(CustomArray customArray) throws CustomArrayException {
         if (customArray == null) {

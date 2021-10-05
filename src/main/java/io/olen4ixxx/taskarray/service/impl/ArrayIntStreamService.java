@@ -3,10 +3,14 @@ package io.olen4ixxx.taskarray.service.impl;
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import io.olen4ixxx.taskarray.service.ArrayIntStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
 public class ArrayIntStreamService implements ArrayIntStream {
+    static Logger logger = LogManager.getLogger();
+
     public double averageOfElements(CustomArray customArray) {
         var average = Arrays.stream(customArray.getArray()).average();
         return average.getAsDouble();

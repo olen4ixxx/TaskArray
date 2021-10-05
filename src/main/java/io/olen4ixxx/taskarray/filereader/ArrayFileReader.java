@@ -1,6 +1,8 @@
 package io.olen4ixxx.taskarray.filereader;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +14,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class ArrayFileReader {
+    static Logger logger = LogManager.getLogger();
+
     public List<String> readArray() throws URISyntaxException, IOException {
         URL res = ArrayFileReader.class.getClassLoader().getResource("array.txt");
         File file = Paths.get(res.toURI()).toFile();

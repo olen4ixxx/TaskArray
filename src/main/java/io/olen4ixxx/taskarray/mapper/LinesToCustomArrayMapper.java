@@ -2,11 +2,14 @@ package io.olen4ixxx.taskarray.mapper;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LinesToCustomArrayMapper {
+    static Logger logger = LogManager.getLogger();
 
     public CustomArray mapLinesToArray(List<String> lines) throws CustomArrayException {
         List<Integer> intList = new ArrayList<>();
