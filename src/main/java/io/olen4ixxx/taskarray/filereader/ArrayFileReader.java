@@ -1,6 +1,6 @@
 package io.olen4ixxx.taskarray.filereader;
 
-import io.olen4ixxx.taskarray.entity.CustomArray;
+import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,21 +16,25 @@ import java.util.List;
 public class ArrayFileReader {
     static Logger logger = LogManager.getLogger();
 
-    public List<String> readArray() throws ClassCastException {
-        URL res = ArrayFileReader.class.getClassLoader().getResource("array.txt");
-        File file = null;
+    public List<String> readLines() throws CustomArrayException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        URL resource = classLoader.getResource("data/array.txt");
+        File file;
         try {
-            file = Paths.get(res.toURI()).toFile();
+            file = Paths.get(resource.toURI()).toFile();
+        } catch (NullPointerException e) {
+            throw new CustomArrayException("File is not found", e);
         } catch (URISyntaxException e) {
-            throw new ClassCastException("Wrong file path");
+            throw new CustomArrayException("Wrong file path", e);
         }
-        String aPath = file.getPath();
-        Path path = Paths.get(aPath);
-        List<String> linesFromFile = null;
+        String filePath = file.getPath();
+        Path path = Paths.get(filePath);
+
+        List<String> linesFromFile;
         try {
             linesFromFile = Files.readAllLines(path);
         } catch (IOException e) {
-            throw new ClassCastException("Check the file");
+            throw new CustomArrayException("Check the file", e);
         }
         return linesFromFile;
     }

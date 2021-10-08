@@ -1,4 +1,4 @@
-package io.olen4ixxx.taskarray.service.impl;
+package io.olen4ixxx.taskarray.service.nonimpl;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;

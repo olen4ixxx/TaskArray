@@ -1,5 +1,6 @@
 package io.olen4ixxx.taskarray.mapper;
 
+import io.olen4ixxx.taskarray.validator.CustomArrayValidator;
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import org.apache.logging.log4j.LogManager;
@@ -12,28 +13,23 @@ public class LinesToCustomArrayMapper {
     static Logger logger = LogManager.getLogger();
 
     public CustomArray mapLinesToArray(List<String> lines) throws CustomArrayException {
+        CustomArrayValidator validator = new CustomArrayValidator();
         List<Integer> intList = new ArrayList<>();
 
-        for (int i = 0; i < lines.size(); i++) {
-            if (lines.get(i) != null && isNumeric(lines.get(i))) {
-                intList.add(Integer.parseInt(lines.get(i)));
+        for (String line : lines) {
+            if (line != null && validator.isNumeric(line)) {
+                intList.add(Integer.parseInt(line));
             }
+        }
+
+        if (intList.isEmpty() || intList == null) {
+            throw new CustomArrayException("Array is empty");
         }
 
         int[] array = new int[intList.size()];
         for (int i = 0; i < intList.size(); i++) {
             array[i] = intList.get(i);
         }
-        CustomArray customArray = new CustomArray(array);
-        return customArray;
-    }
-
-    public boolean isNumeric(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e){
-            return false;
-        }
+        return new CustomArray(array);
     }
 }

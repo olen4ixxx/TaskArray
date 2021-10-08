@@ -10,7 +10,6 @@ public class CustomArrayException extends Exception {
     }
 
     public CustomArrayException() {
-
     }
 
     public CustomArrayException(Throwable cause) {

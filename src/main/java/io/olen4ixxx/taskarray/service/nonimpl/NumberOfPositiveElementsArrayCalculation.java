@@ -1,23 +1,24 @@
-package io.olen4ixxx.taskarray.service.impl;
+package io.olen4ixxx.taskarray.service.nonimpl;
 
-import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
+import io.olen4ixxx.taskarray.entity.CustomArray;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SumOfElementsArrayService {
+public class NumberOfPositiveElementsArrayCalculation {
     static Logger logger = LogManager.getLogger();
 
     public int result(CustomArray customArray) throws CustomArrayException {
-
         if (customArray == null) {
             throw new CustomArrayException("Array is null");
         }
         int[] array = customArray.getArray();
-        int sumOfElements = 0;
+        int numberOfPositiveElements = 0;
         for (int element:array) {
-            sumOfElements += element;
+            if (element > 0) {
+                numberOfPositiveElements++;
+            }
         }
-        return sumOfElements;
+        return numberOfPositiveElements;
     }
 }
