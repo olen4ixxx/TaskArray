@@ -16,8 +16,6 @@ public class Main {
     static Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) throws CustomArrayException {
-        logger.info("one");
-        logger.error("two");
 //        int[] a = new int[]{0, 2, 3, 1, 4, -2, -1};
 //
 //        CustomArray customArray = new CustomArray(a);

@@ -32,7 +32,7 @@ public class LinesToCustomArrayMapperTest {
         assertEquals(actual, expected);
     }
 
-    @Test(expectedExceptions = CustomArrayException.class, expectedExceptionsMessageRegExp = "Array is empty")
+    @Test(expectedExceptions = CustomArrayException.class, expectedExceptionsMessageRegExp = "No data")
     public void testMapLinesToArrayException() throws CustomArrayException {
         linesToCustomArrayMapper.mapLinesToArray(new ArrayList<>());
     }
