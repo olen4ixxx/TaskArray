@@ -1,0 +1,42 @@
+08-10-2021 23:04:41 [main] INFO  io.olen4ixxx.taskarray.Main - one
+08-10-2021 23:04:42 [main] ERROR io.olen4ixxx.taskarray.Main - two
+08-10-2021 23:06:20 [main] INFO  io.olen4ixxx.taskarray.Main - one
+08-10-2021 23:06:20 [main] ERROR io.olen4ixxx.taskarray.Main - two
+09-10-2021 00:37:39 [main] INFO  io.olen4ixxx.taskarray.filereader.ArrayFileReader - File is read
+09-10-2021 00:37:39 [main] INFO  io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper - CustomArray is ready
+09-10-2021 00:37:39 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - sumOfElements: 2
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - sumOfElements: 150
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - averageOfArrayElements: 30.0
+09-10-2021 00:39:24 [main] ERROR olen4ixxx.taskarray.service.impl.ArrayCalculationService - Array is empty
+09-10-2021 00:39:24 [TestNG-method=testAverageOfElementsTimeOut-1] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - sumOfElements: 33000000
+09-10-2021 00:39:24 [TestNG-method=testAverageOfElementsTimeOut-1] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - averageOfArrayElements: 33.0
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - maxElement: 90
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - minElement: -30
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - negativeToPositiveElementsReplacement is done
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - numberOfNegativeElements: 1
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - numberOfPositiveElements: 3
+09-10-2021 00:39:24 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - sumOfElements: 150
+09-10-2021 00:39:24 [TestNG-method=testSumOfElementsTimeOut-1] INFO  olen4ixxx.taskarray.service.impl.ArrayCalculationService - sumOfElements: 499500
+09-10-2021 00:39:41 [main] INFO  olen4ixxx.taskarray.service.impl.ArraySortService - CustomArray is bubble sorted
+09-10-2021 00:39:41 [main] INFO  olen4ixxx.taskarray.service.impl.ArraySortService - CustomArray is quick sorted
+09-10-2021 00:39:41 [main] INFO  olen4ixxx.taskarray.service.impl.ArraySortService - CustomArray is selection sorted
+09-10-2021 00:39:57 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - averageOfArrayElementsStream: 30.0
+09-10-2021 00:39:58 [main] ERROR olen4ixxx.taskarray.service.impl.ArrayStreamService - Array is empty
+09-10-2021 00:39:58 [TestNG-method=testAverageOfElementsTimeOut-1] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - averageOfArrayElementsStream: 33.0
+09-10-2021 00:39:58 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - maxElementStream: 90
+09-10-2021 00:39:58 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - minElementStream: -30
+09-10-2021 00:39:58 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - negativeToPositiveElementsReplacement is done
+09-10-2021 00:39:58 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - numberOfNegativeElementsStream: 1
+09-10-2021 00:39:58 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - numberOfPositiveElementsStream: 3
+09-10-2021 00:39:58 [main] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - sumOfElementsStream: 150
+09-10-2021 00:39:58 [TestNG-method=testSumOfElementsTimeOut-1] INFO  olen4ixxx.taskarray.service.impl.ArrayStreamService - sumOfElementsStream: 499500
+09-10-2021 00:40:15 [TestNG-method=testMapLinesToArray-1] INFO  io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper - CustomArray is ready
+09-10-2021 00:40:15 [main] ERROR io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper - No data
+09-10-2021 00:40:15 [main] ERROR io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper - No data
+09-10-2021 00:41:21 [TestNG-method=testMapLinesToArray-1] INFO  io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper - CustomArray is ready
+09-10-2021 00:41:21 [main] ERROR io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper - No data
+09-10-2021 00:41:21 [main] ERROR io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper - No data
+09-10-2021 00:41:53 [TestNG-method=testReadLines-1] INFO  io.olen4ixxx.taskarray.filereader.ArrayFileReader - File is read
+09-10-2021 00:43:47 [main] ERROR io.olen4ixxx.taskarray.filereader.ArrayFileReader - File is not found
+09-10-2021 00:55:30 [main] INFO  io.olen4ixxx.taskarray.filereader.ArrayFileReader - File is read
+09-10-2021 00:56:18 [main] INFO  io.olen4ixxx.taskarray.filereader.ArrayFileReader - File is read
