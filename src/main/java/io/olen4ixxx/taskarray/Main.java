@@ -9,9 +9,15 @@ import io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper;
 import io.olen4ixxx.taskarray.service.ArrayCalculation;
 import io.olen4ixxx.taskarray.service.impl.ArrayCalculationService;
 import io.olen4ixxx.taskarray.service.impl.ArraySortService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Main {
+    static Logger logger = LogManager.getLogger();
+
     public static void main(String[] args) throws CustomArrayException {
+        logger.info("one");
+        logger.error("two");
 //        int[] a = new int[]{0, 2, 3, 1, 4, -2, -1};
 //
 //        CustomArray customArray = new CustomArray(a);
@@ -20,7 +26,7 @@ public class Main {
 
         ArrayFileReader arrayFileReader = new ArrayFileReader();
         LinesToCustomArrayMapper linesToCustomArrayMapper = new LinesToCustomArrayMapper();
-        var customArray = linesToCustomArrayMapper.mapLinesToArray(arrayFileReader.readLines());
+        var customArray = linesToCustomArrayMapper.mapLinesToArray(arrayFileReader.readLines("data/array.txt"));
         System.out.println(customArray);
 //        arraySort.bubbleSort(customArray);
 //        arraySort.selectionSort(customArray);

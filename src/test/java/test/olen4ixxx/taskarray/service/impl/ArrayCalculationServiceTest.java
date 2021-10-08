@@ -49,8 +49,8 @@ public class ArrayCalculationServiceTest {
 
     @Test
     public void testAverageOfElements() throws CustomArrayException {
-        double actual = arrayCalculation.averageOfElements(customArray);
         double expected = 30;
+        double actual = arrayCalculation.averageOfElements(customArray);
         assertEquals(actual, expected, 0.001);
     }
 
@@ -62,44 +62,46 @@ public class ArrayCalculationServiceTest {
 
     @Test
     public void testMaxElement() throws CustomArrayException {
-        int actual = arrayCalculation.maxElement(customArray);
         int expected = 90;
+        int actual = arrayCalculation.maxElement(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testMinElement() throws CustomArrayException {
-        int actual = arrayCalculation.minElement(customArray);
         int expected = -30;
+        int actual = arrayCalculation.minElement(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testNegativeToPositiveElementsReplacement() throws CustomArrayException {
-        CustomArray actual = arrayCalculation.negativeToPositiveElementsReplacement(customArray);
         var expectedArray = new int[]{0, 60, 30, 90, 30};
         var expected = new CustomArray(expectedArray);
+        var actualArray = new int[]{0, 60, 30, 90, -30};
+        var actual = new CustomArray(actualArray);
+        arrayCalculation.negativeToPositiveElementsReplacement(actual);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testNumberOfNegativeElements() throws CustomArrayException {
-        int actual = arrayCalculation.numberOfNegativeElements(customArray);
         int expected = 1;
+        int actual = arrayCalculation.numberOfNegativeElements(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testNumberOfPositiveElements() throws CustomArrayException {
-        int actual = arrayCalculation.numberOfPositiveElements(customArray);
         int expected = 3;
+        int actual = arrayCalculation.numberOfPositiveElements(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testSumOfElements() throws CustomArrayException {
-        int actual = arrayCalculation.sumOfElements(customArray);
         int expected = 150;
+        int actual = arrayCalculation.sumOfElements(customArray);
         assertEquals(actual, expected);
     }
 }

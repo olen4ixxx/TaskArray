@@ -2,9 +2,7 @@ package test.olen4ixxx.taskarray.service.impl;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
-import io.olen4ixxx.taskarray.service.ArrayCalculation;
 import io.olen4ixxx.taskarray.service.ArrayStream;
-import io.olen4ixxx.taskarray.service.impl.ArrayCalculationService;
 import io.olen4ixxx.taskarray.service.impl.ArrayStreamService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,13 +12,13 @@ import java.util.Arrays;
 import static org.testng.Assert.assertEquals;
 
 public class ArrayStreamServiceTest {
-    ArrayStream arrayCalculation;
+    ArrayStream arrayStream;
     CustomArray customArray;
     int[] array;
 
     @BeforeClass
     public void setUp() {
-        arrayCalculation = new ArrayStreamService();
+        arrayStream = new ArrayStreamService();
         array = new int[]{0, 60, 30, 90, -30};
         customArray = new CustomArray(array);
     }
@@ -34,7 +32,7 @@ public class ArrayStreamServiceTest {
         }
         double expected = n * (n - 1) / 2.0;
         CustomArray customArray = new CustomArray(array);
-        double actual = arrayCalculation.sumOfElements(customArray);
+        double actual = arrayStream.sumOfElements(customArray);
         assertEquals(actual, expected, 0.001);
     }
 
@@ -45,63 +43,65 @@ public class ArrayStreamServiceTest {
         Arrays.fill(array, 33);
         double expected = 33;
         CustomArray customArray = new CustomArray(array);
-        double actual = arrayCalculation.averageOfElements(customArray);
+        double actual = arrayStream.averageOfElements(customArray);
         assertEquals(actual, expected, 0.001);
     }
 
     @Test
     public void testAverageOfElements() throws CustomArrayException {
-        double actual = arrayCalculation.averageOfElements(customArray);
         double expected = 30;
+        double actual = arrayStream.averageOfElements(customArray);
         assertEquals(actual, expected, 0.001);
     }
 
     @Test(expectedExceptions = CustomArrayException.class)
     public void testAverageOfElementsException() throws CustomArrayException {
         int[] array = {};
-        arrayCalculation.averageOfElements(new CustomArray(array));
+        arrayStream.averageOfElements(new CustomArray(array));
     }
 
     @Test
     public void testMaxElement() throws CustomArrayException {
-        int actual = arrayCalculation.maxElement(customArray);
         int expected = 90;
+        int actual = arrayStream.maxElement(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testMinElement() throws CustomArrayException {
-        int actual = arrayCalculation.minElement(customArray);
         int expected = -30;
+        int actual = arrayStream.minElement(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testNegativeToPositiveElementsReplacement() throws CustomArrayException {
-        CustomArray actual = arrayCalculation.negativeToPositiveElementsReplacement(customArray);
         var expectedArray = new int[]{0, 60, 30, 90, 30};
         var expected = new CustomArray(expectedArray);
+        var actualArray = new int[]{0, 60, 30, 90, -30};
+        var actual = new CustomArray(actualArray);
+        arrayStream.negativeToPositiveElementsReplacement(actual);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testNumberOfNegativeElements() throws CustomArrayException {
-        int actual = arrayCalculation.numberOfNegativeElements(customArray);
         int expected = 1;
+        int actual = arrayStream.numberOfNegativeElements(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testNumberOfPositiveElements() throws CustomArrayException {
-        int actual = arrayCalculation.numberOfPositiveElements(customArray);
         int expected = 3;
+        int actual = arrayStream.numberOfPositiveElements(customArray);
         assertEquals(actual, expected);
     }
 
     @Test
     public void testSumOfElements() throws CustomArrayException {
-        int actual = arrayCalculation.sumOfElements(customArray);
         int expected = 150;
+        int actual = arrayStream.sumOfElements(customArray);
         assertEquals(actual, expected);
     }
 }

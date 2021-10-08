@@ -3,11 +3,15 @@ package io.olen4ixxx.taskarray.service.impl;
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import io.olen4ixxx.taskarray.service.ArraySort;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ArraySortService implements ArraySort {
+    static Logger logger = LogManager.getLogger();
 
     public void bubbleSort(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -16,11 +20,12 @@ public class ArraySortService implements ArraySort {
         }
         bubbleSortLogic(array);
         customArray.setArray(array);
+        logger.info("CustomArray is bubble sorted");
     }
-
 
     public void selectionSort(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -29,11 +34,12 @@ public class ArraySortService implements ArraySort {
         }
         selectionSortLogic(array);
         customArray.setArray(array);
+        logger.info("CustomArray is selection sorted");
     }
-
 
     public void quickSort(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -42,15 +48,14 @@ public class ArraySortService implements ArraySort {
         }
         quickSortLogic(array, 0, array.length - 1);
         customArray.setArray(array);
+        logger.info("CustomArray is quick sorted");
     }
-
 
     private void swap(int[] array, int i, int j) {
         int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
     }
-
 
     private void bubbleSortLogic(int[] array) {
         boolean needIteration = true;
@@ -65,7 +70,6 @@ public class ArraySortService implements ArraySort {
         }
     }
 
-
     private void selectionSortLogic(int[] array) {
         for (int min = 0; min < array.length-1; min++) {
             int least = min;
@@ -77,7 +81,6 @@ public class ArraySortService implements ArraySort {
             swap(array, min, least);
         }
     }
-
 
     private void quickSortLogic(int[] source, int leftBorder, int rightBorder) {
         int leftMarker = leftBorder;

@@ -24,34 +24,31 @@ public class ArraySortServiceTest {
 
     @Test
     public void testBubbleSort() throws CustomArrayException {
+        var expected = customArraySorted;
         var array = new int[]{10, -1, 2, 10, 0};
         var customArray = new CustomArray(array);
-
         arraySort.bubbleSort(customArray);
         var actual = customArray;
-        var expected = customArraySorted;
         assertEquals(actual, expected);
     }
 
     @Test
     public void testSelectionSort() throws CustomArrayException {
+        var expected = customArraySorted;
         var array = new int[]{10, -1, 2, 10, 0};
         var customArray = new CustomArray(array);
-
         arraySort.selectionSort(customArray);
         var actual = customArray;
-        var expected = customArraySorted;
         assertEquals(actual, expected);
     }
 
     @Test
     public void testQuickSort() throws CustomArrayException {
+        var expected = customArraySorted;
         var array = new int[]{10, -1, 2, 10, 0};
         var customArray = new CustomArray(array);
-
         arraySort.quickSort(customArray);
         var actual = customArray;
-        var expected = customArraySorted;
         assertEquals(actual, expected);
     }
 }

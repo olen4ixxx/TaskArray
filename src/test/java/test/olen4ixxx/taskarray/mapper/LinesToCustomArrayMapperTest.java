@@ -4,15 +4,13 @@ import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import io.olen4ixxx.taskarray.mapper.LinesToCustomArrayMapper;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class LinesToCustomArrayMapperTest {
 
@@ -28,9 +26,9 @@ public class LinesToCustomArrayMapperTest {
     @Test(timeOut = 100)
     public void testMapLinesToArray() throws CustomArrayException {
         List<String> lines = Arrays.asList(array);
+        var arrayExpected = new int[]{1, -2};
+        var expected = new CustomArray(arrayExpected);
         CustomArray actual = linesToCustomArrayMapper.mapLinesToArray(lines);
-        var array = new int[]{1, -2};
-        var expected = new CustomArray(array);
         assertEquals(actual, expected);
     }
 

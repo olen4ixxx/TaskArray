@@ -7,7 +7,7 @@ public interface ArrayCalculation {
     double averageOfElements(CustomArray customArray) throws CustomArrayException;
     int maxElement(CustomArray customArray) throws CustomArrayException;
     int minElement(CustomArray customArray) throws CustomArrayException;
-    CustomArray negativeToPositiveElementsReplacement(CustomArray customArray) throws CustomArrayException;
+    void negativeToPositiveElementsReplacement(CustomArray customArray) throws CustomArrayException;
     int numberOfNegativeElements(CustomArray customArray) throws CustomArrayException;
     int numberOfPositiveElements(CustomArray customArray) throws CustomArrayException;
     int sumOfElements(CustomArray customArray) throws CustomArrayException;

@@ -11,15 +11,18 @@ public class ArrayCalculationService implements ArrayCalculation {
 
     public double averageOfElements(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
         double averageOfArrayElements = (double) sumOfElements(customArray) / array.length;
+        logger.info("averageOfArrayElements: " + averageOfArrayElements);
         return averageOfArrayElements;
     }
 
     public int maxElement(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -29,11 +32,13 @@ public class ArrayCalculationService implements ArrayCalculation {
                 maxElement = array[i];
             }
         }
+        logger.info("maxElement: " + maxElement);
         return maxElement;
     }
 
     public int minElement(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -43,11 +48,13 @@ public class ArrayCalculationService implements ArrayCalculation {
                 minElement = array[i];
             }
         }
+        logger.info("minElement: " + minElement);
         return minElement;
     }
 
-    public CustomArray negativeToPositiveElementsReplacement(CustomArray customArray) throws CustomArrayException {
+    public void negativeToPositiveElementsReplacement(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -56,11 +63,13 @@ public class ArrayCalculationService implements ArrayCalculation {
                 array[i] = -array[i];
             }
         }
-        return new CustomArray(array);
+        customArray.setArray(array);
+        logger.info("negativeToPositiveElementsReplacement is done");
     }
 
     public int numberOfNegativeElements(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -70,11 +79,13 @@ public class ArrayCalculationService implements ArrayCalculation {
                 numberOfNegativeElements++;
             }
         }
+        logger.info("numberOfNegativeElements: " + numberOfNegativeElements);
         return numberOfNegativeElements;
     }
 
     public int numberOfPositiveElements(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -84,11 +95,13 @@ public class ArrayCalculationService implements ArrayCalculation {
                 numberOfPositiveElements++;
             }
         }
+        logger.info("numberOfPositiveElements: " + numberOfPositiveElements);
         return numberOfPositiveElements;
     }
 
     public int sumOfElements(CustomArray customArray) throws CustomArrayException {
         if (customArray == null || customArray.isEmpty()) {
+            logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
@@ -96,6 +109,7 @@ public class ArrayCalculationService implements ArrayCalculation {
         for (int element:array) {
             sumOfElements += element;
         }
+        logger.info("sumOfElements: " + sumOfElements);
         return sumOfElements;
     }
 }

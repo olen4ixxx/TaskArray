@@ -15,6 +15,6 @@ public class ArrayFileReaderTest {
 
     @Test(timeOut = 100)
     public void testReadLines() throws CustomArrayException {
-        arrayFileReader.readLines();
+        arrayFileReader.readLines("data/array.txt");
     }
 }
