@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
+
 import static org.testng.Assert.assertEquals;
 
 public class ArrayFileReaderTest {
@@ -17,9 +18,9 @@ public class ArrayFileReaderTest {
         arrayFileReader = new ArrayFileReader();
     }
 
-    @Test(timeOut = 100)
+    @Test(timeOut = 10)
     public void testReadLinesTimeOut() throws CustomArrayException {
-        arrayFileReader.readLines("data/arrayTestBig.txt");
+        arrayFileReader.readLines("data/arrayTestBigForTimeOutTest.txt");
     }
 
     @Test(expectedExceptions = CustomArrayException.class)

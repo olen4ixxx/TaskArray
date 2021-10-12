@@ -38,7 +38,7 @@ public class ArrayStreamServiceTest {
 
     @Test(timeOut = 100)
     public void testAverageOfElementsTimeOut() throws CustomArrayException {
-        int n = 1_000_000;
+        int n = 1_000;
         int[] array = new int[n];
         Arrays.fill(array, 33);
         double expected = 33;

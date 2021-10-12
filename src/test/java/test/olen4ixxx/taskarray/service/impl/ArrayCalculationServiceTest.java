@@ -3,13 +3,13 @@ package test.olen4ixxx.taskarray.service.impl;
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import io.olen4ixxx.taskarray.service.ArrayCalculation;
+import io.olen4ixxx.taskarray.service.impl.ArrayCalculationService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import io.olen4ixxx.taskarray.service.impl.ArrayCalculationService;
 
 import java.util.Arrays;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class ArrayCalculationServiceTest {
     ArrayCalculation arrayCalculation;
@@ -38,7 +38,7 @@ public class ArrayCalculationServiceTest {
 
     @Test(timeOut = 100)
     public void testAverageOfElementsTimeOut() throws CustomArrayException {
-        int n = 1_000_000;
+        int n = 1_000;
         int[] array = new int[n];
         Arrays.fill(array, 33);
         double expected = 33;

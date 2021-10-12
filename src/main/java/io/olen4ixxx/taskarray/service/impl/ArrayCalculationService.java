@@ -3,25 +3,29 @@ package io.olen4ixxx.taskarray.service.impl;
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import io.olen4ixxx.taskarray.service.ArrayCalculation;
+import io.olen4ixxx.taskarray.validator.CustomArrayValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ArrayCalculationService implements ArrayCalculation {
-    static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
+    private final CustomArrayValidator validator = new CustomArrayValidator();
 
     public double averageOfElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayCalculationService: averageOfElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
         double averageOfArrayElements = (double) sumOfElements(customArray) / array.length;
-        logger.info("averageOfArrayElements: " + averageOfArrayElements);
+        logger.info("averageOfArrayElements: {}", averageOfArrayElements);
         return averageOfArrayElements;
     }
 
     public int maxElement(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayCalculationService: maxElement({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
@@ -32,12 +36,13 @@ public class ArrayCalculationService implements ArrayCalculation {
                 maxElement = array[i];
             }
         }
-        logger.info("maxElement: " + maxElement);
+        logger.info("maxElement: {}", maxElement);
         return maxElement;
     }
 
     public int minElement(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayCalculationService: minElement({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
@@ -48,12 +53,13 @@ public class ArrayCalculationService implements ArrayCalculation {
                 minElement = array[i];
             }
         }
-        logger.info("minElement: " + minElement);
+        logger.info("minElement: {}", minElement);
         return minElement;
     }
 
     public void negativeToPositiveElementsReplacement(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayCalculationService: negativeToPositiveElementsReplacement({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
@@ -68,48 +74,50 @@ public class ArrayCalculationService implements ArrayCalculation {
     }
 
     public int numberOfNegativeElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayCalculationService: numberOfNegativeElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
         int numberOfNegativeElements = 0;
-        for (int element:array) {
+        for (int element : array) {
             if (element < 0) {
                 numberOfNegativeElements++;
             }
         }
-        logger.info("numberOfNegativeElements: " + numberOfNegativeElements);
+        logger.info("numberOfNegativeElements: {}", numberOfNegativeElements);
         return numberOfNegativeElements;
     }
 
     public int numberOfPositiveElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayCalculationService: numberOfPositiveElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int[] array = customArray.getArray();
         int numberOfPositiveElements = 0;
-        for (int element:array) {
+        for (int element : array) {
             if (element > 0) {
                 numberOfPositiveElements++;
             }
         }
-        logger.info("numberOfPositiveElements: " + numberOfPositiveElements);
+        logger.info("numberOfPositiveElements: {}", numberOfPositiveElements);
         return numberOfPositiveElements;
     }
 
     public int sumOfElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayCalculationService: sumOfElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
-        int[] array = customArray.getArray();
         int sumOfElements = 0;
-        for (int element:array) {
+        for (int element : customArray.getArray()) {
             sumOfElements += element;
         }
-        logger.info("sumOfElements: " + sumOfElements);
+        logger.info("sumOfElements: {}", sumOfElements);
         return sumOfElements;
     }
 }

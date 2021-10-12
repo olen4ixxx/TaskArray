@@ -31,14 +31,4 @@ public class LinesToCustomArrayMapperTest {
         CustomArray actual = linesToCustomArrayMapper.mapLinesToArray(lines);
         assertEquals(actual, expected);
     }
-
-    @Test(expectedExceptions = CustomArrayException.class, expectedExceptionsMessageRegExp = "No data")
-    public void testMapLinesToArrayException() throws CustomArrayException {
-        linesToCustomArrayMapper.mapLinesToArray(new ArrayList<>());
-    }
-
-    @Test(expectedExceptions = CustomArrayException.class, expectedExceptionsMessageRegExp = "Empty")
-    public void testMapLinesToArrayExceptionWrongMessage() throws CustomArrayException {
-        linesToCustomArrayMapper.mapLinesToArray(new ArrayList<>());
-    }
 }

@@ -13,9 +13,10 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class ArrayFileReader {
-    static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     public List<String> readLines(String stringPath) throws CustomArrayException {
+        logger.info("ArrayFileReader: readLines({})", stringPath);
         ClassLoader classLoader = getClass().getClassLoader();
         URL resource = classLoader.getResource(stringPath);
         if (resource == null) {

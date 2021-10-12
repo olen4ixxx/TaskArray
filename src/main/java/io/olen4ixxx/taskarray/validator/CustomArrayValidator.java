@@ -1,16 +1,27 @@
 package io.olen4ixxx.taskarray.validator;
 
 import io.olen4ixxx.taskarray.entity.CustomArray;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import java.util.List;
 
 public class CustomArrayValidator {
-    public boolean isNumeric(String str) {
+    public boolean isLineNumeric(String str) {
+        if (str == null) {
+            return false;
+        }
         try {
             Integer.parseInt(str);
             return true;
-        } catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public boolean isEmptyOrNull(List<String> list) {
+        return (list == null || list.isEmpty());
+    }
+
+    public boolean isEmptyOrNull(CustomArray customArray) {
+        return (customArray == null || customArray.getArray().length <= 0);
     }
 }

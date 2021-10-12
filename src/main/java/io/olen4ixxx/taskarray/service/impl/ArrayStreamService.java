@@ -1,105 +1,110 @@
 package io.olen4ixxx.taskarray.service.impl;
 
-import io.olen4ixxx.taskarray.service.ArrayStream;
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
+import io.olen4ixxx.taskarray.service.ArrayStream;
+import io.olen4ixxx.taskarray.validator.CustomArrayValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 
 public class ArrayStreamService implements ArrayStream {
-    static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
+    private final CustomArrayValidator validator = new CustomArrayValidator();
 
     public double averageOfElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: averageOfElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
-        OptionalDouble average = Arrays.stream(customArray.getArray()).average();
-        if (average.isEmpty()) {
-            logger.error("Array is empty");
-            throw new CustomArrayException("Array is empty");
-        }
-        var averageOfArrayElements = average.getAsDouble();
-        logger.info("averageOfArrayElementsStream: " + averageOfArrayElements);
+        double averageOfArrayElements = Arrays.stream(customArray.getArray()).average()
+                .orElseThrow(() -> {
+                    logger.error("Array is empty");
+                    return new CustomArrayException();
+                });
+        logger.info("averageOfArrayElementsStream: {}", averageOfArrayElements);
         return averageOfArrayElements;
     }
 
     public int maxElement(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: maxElement({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
-        OptionalInt max = Arrays.stream(customArray.getArray()).max();
-        if (max.isEmpty()) {
-            logger.error("Array is empty");
-            throw new CustomArrayException("Array is empty");
-        }
-        var maxElement = max.getAsInt();
-        logger.info("maxElementStream: " + maxElement);
+        int maxElement = Arrays.stream(customArray.getArray()).max()
+                .orElseThrow(() -> {
+                    logger.error("Array is empty");
+                    return new CustomArrayException();
+                });
+        logger.info("maxElementStream: {}", maxElement);
         return maxElement;
     }
 
     public int minElement(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: minElement({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
-        OptionalInt min = Arrays.stream(customArray.getArray()).min();
-        if (min.isEmpty()) {
-            logger.error("Array is empty");
-            throw new CustomArrayException("Array is empty");
-        }
-        var minElement = min.getAsInt();
-        logger.info("minElementStream: " + minElement);
+        int minElement = Arrays.stream(customArray.getArray()).min()
+                .orElseThrow(() -> {
+                    logger.error("Array is empty");
+                    return new CustomArrayException();
+                });
+        logger.info("minElementStream: {}", minElement);
         return minElement;
     }
 
     public void negativeToPositiveElementsReplacement(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: negativeToPositiveElementsReplacement({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
-        int[] array = Arrays.stream(customArray.getArray()).map(Math :: abs).toArray();
+        int[] array = Arrays.stream(customArray.getArray()).map(Math::abs).toArray();
         customArray.setArray(array);
         logger.info("negativeToPositiveElementsReplacement is done");
     }
 
     public int numberOfNegativeElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: numberOfNegativeElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int numberOfNegativeElements = (int) Arrays.stream(customArray.getArray()).filter(x -> x < 0).count();
-        logger.info("numberOfNegativeElementsStream: " + numberOfNegativeElements);
+        logger.info("numberOfNegativeElementsStream: {}", numberOfNegativeElements);
         return numberOfNegativeElements;
     }
 
     public int numberOfPositiveElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: numberOfPositiveElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int numberOfPositiveElements = (int) Arrays.stream(customArray.getArray()).filter(x -> x > 0).count();
-        logger.info("numberOfPositiveElementsStream: " + numberOfPositiveElements);
+        logger.info("numberOfPositiveElementsStream: {}", numberOfPositiveElements);
         return numberOfPositiveElements;
     }
 
     public int sumOfElements(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: sumOfElements({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
         int sumOfElements = Arrays.stream(customArray.getArray()).sum();
-        logger.info("sumOfElementsStream: " + sumOfElements);
+        logger.info("sumOfElementsStream: {}", sumOfElements);
         return sumOfElements;
     }
 
     public void sortArray(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArrayStreamService: sortArray({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }

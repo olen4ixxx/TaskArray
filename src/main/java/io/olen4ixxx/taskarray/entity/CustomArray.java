@@ -15,6 +15,9 @@ public class CustomArray {
     }
 
     public int[] getArray() {
+        if (array == null) {
+            return new int[]{};
+        }
         return Arrays.copyOf(array, array.length);
     }
 
@@ -34,10 +37,6 @@ public class CustomArray {
             throw new CustomArrayException("Index Out Of Bounds");
         }
         this.array[index] = value;
-    }
-
-    public boolean isEmpty() {
-        return this.getArray().length <= 0;
     }
 
     @Override

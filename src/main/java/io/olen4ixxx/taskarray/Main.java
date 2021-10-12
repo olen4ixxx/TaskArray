@@ -1,5 +1,6 @@
 package io.olen4ixxx.taskarray;
 
+import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.service.ArraySort;
 import io.olen4ixxx.taskarray.service.ArrayStream;
 import io.olen4ixxx.taskarray.service.impl.ArrayStreamService;
@@ -11,6 +12,8 @@ import io.olen4ixxx.taskarray.service.impl.ArrayCalculationService;
 import io.olen4ixxx.taskarray.service.impl.ArraySortService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Arrays;
 
 public class Main {
     static Logger logger = LogManager.getLogger();
@@ -54,5 +57,9 @@ public class Main {
 //        System.out.println("numberOfNegative: " + arrayCalculation.numberOfNegativeElements(customArray));
 //        System.out.println("numberOfPositive: " + arrayCalculation.numberOfPositiveElements(customArray));
         System.out.println("sum: " + arrayCalculation.sumOfElements(customArray));
+        CustomArray as = new CustomArray(null);
+        System.out.println(Arrays.toString(as.getArray()));
+        logger.info("LinesToCustomArrayMapper: mapLinesToArray({})", "asd");
+        System.out.println(as.getArray().length);
     }
 }

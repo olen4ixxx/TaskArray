@@ -3,14 +3,17 @@ package io.olen4ixxx.taskarray.service.impl;
 import io.olen4ixxx.taskarray.entity.CustomArray;
 import io.olen4ixxx.taskarray.exception.CustomArrayException;
 import io.olen4ixxx.taskarray.service.ArraySort;
+import io.olen4ixxx.taskarray.validator.CustomArrayValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ArraySortService implements ArraySort {
-    static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
+    private final CustomArrayValidator validator = new CustomArrayValidator();
 
     public void bubbleSort(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArraySortService: bubbleSort({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
@@ -24,7 +27,8 @@ public class ArraySortService implements ArraySort {
     }
 
     public void selectionSort(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArraySortService: selectionSort({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
@@ -38,7 +42,8 @@ public class ArraySortService implements ArraySort {
     }
 
     public void quickSort(CustomArray customArray) throws CustomArrayException {
-        if (customArray == null || customArray.isEmpty()) {
+        logger.info("ArraySortService: quickSort({})", customArray);
+        if (validator.isEmptyOrNull(customArray)) {
             logger.error("Array is empty");
             throw new CustomArrayException("Array is empty");
         }
@@ -71,7 +76,7 @@ public class ArraySortService implements ArraySort {
     }
 
     private void selectionSortLogic(int[] array) {
-        for (int min = 0; min < array.length-1; min++) {
+        for (int min = 0; min < array.length - 1; min++) {
             int least = min;
             for (int j = min + 1; j < array.length; j++) {
                 if (array[j] < array[least]) {
